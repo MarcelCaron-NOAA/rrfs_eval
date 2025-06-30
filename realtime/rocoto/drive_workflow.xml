@@ -2,6 +2,7 @@
 <!DOCTYPE workflow
 [
     <!ENTITY USER "marcel.caron">
+    <!ENTITY RZDMUSER "mcaron">
     <!ENTITY ACCOUNT "RRFS-DEV">
 
     <!ENTITY models "namnest hrrr hireswarw hireswarwmem2 hireswfv3 rrfs">
@@ -9,10 +10,11 @@
     <!ENTITY models_meso "nam">
     <!ENTITY models_firewx "nam rrfs">
 
-    <!ENTITY RRFSevs "/lfs/h2/emc/vpppg/save/marcel.caron/EVS_rrfs/realtime/EVS">
-    <!ENTITY USHrealtime "/lfs/h2/emc/vpppg/noscrub/marcel.caron/ush/rrfs_eval/realtime">
-    <!ENTITY LOGOUT "/lfs/h2/emc/stmp/marcel.caron/realtime.out">
-    <!ENTITY COMOUT "/lfs/h2/emc/vpppg/noscrub/marcel.caron/evs/v2.0">
+    <!ENTITY RRFSevs "/lfs/h2/emc/vpppg/save/&USER;/EVS_rrfs/realtime/EVS">
+    <!ENTITY USHrealtime "/lfs/h2/emc/vpppg/noscrub/&USER;/ush/rrfs_eval/realtime">
+    <!ENTITY LOGDIR "/lfs/h2/emc/ptmp/&USER;/output/realtime">
+    <!ENTITY LOGOUT "/lfs/h2/emc/stmp/&USER;/realtime.out">
+    <!ENTITY COMOUT "/lfs/h2/emc/vpppg/noscrub/&USER;/evs/v2.0">
 
     <!ENTITY COMINccpa "/lfs/h1/ops/prod/com/ccpa/v4.2">
     <!ENTITY COMINobsproc "/lfs/h1/ops/prod/com/obsproc/v1.2">
@@ -71,6 +73,8 @@
             <join><cyclestr>&LOGOUT;/prep_precip_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>prep_precip_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -93,6 +97,8 @@
             <join><cyclestr>&LOGOUT;/prep_radar_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>prep_radar_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -114,6 +120,8 @@
             <join><cyclestr>&LOGOUT;/prep_severe_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>prep_severe_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -136,6 +144,8 @@
             <join><cyclestr>&LOGOUT;/prep_severe_model_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>prep_severe_model_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -162,6 +172,8 @@
             <join><cyclestr>&LOGOUT;/stats_grid2obs_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_grid2obs_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -184,6 +196,8 @@
             <join><cyclestr>&LOGOUT;/stats_grid2obs_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_grid2obs_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -219,6 +233,8 @@
             <join><cyclestr>&LOGOUT;/stats_grid2obs_meso_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_grid2obs_meso_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_meso;</value></envar>
@@ -241,6 +257,8 @@
             <join><cyclestr>&LOGOUT;/stats_firewx_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_firewx_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_firewx;</value></envar>
@@ -263,6 +281,8 @@
             <join><cyclestr>&LOGOUT;/stats_firewx_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_firewx_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_firewx;</value></envar>
@@ -291,6 +311,8 @@
             <join><cyclestr>&LOGOUT;/stats_precip_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_precip_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -313,6 +335,8 @@
             <join><cyclestr>&LOGOUT;/stats_precip_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_precip_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -341,6 +365,8 @@
             <join><cyclestr>&LOGOUT;/stats_precip_meso_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_precip_meso_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_meso;</value></envar>
@@ -363,6 +389,8 @@
             <join><cyclestr>&LOGOUT;/stats_precip_meso_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_precip_meso_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_meso;</value></envar>
@@ -391,6 +419,8 @@
             <join><cyclestr>&LOGOUT;/stats_snowfall_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_snowfall_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_all;</value></envar>
@@ -413,6 +443,8 @@
             <join><cyclestr>&LOGOUT;/stats_snowfall_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_snowfall_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_all;</value></envar>
@@ -441,6 +473,8 @@
             <join><cyclestr>&LOGOUT;/stats_radar_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_radar_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -463,6 +497,8 @@
             <join><cyclestr>&LOGOUT;/stats_radar_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_radar_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -491,6 +527,8 @@
             <join><cyclestr>&LOGOUT;/stats_severe_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>stats_severe_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models;</value></envar>
@@ -517,6 +555,8 @@
             <join><cyclestr>&LOGOUT;/plots_main_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>plots_main_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_all;</value></envar>
@@ -531,6 +571,8 @@
             <join><cyclestr>&LOGOUT;/plots_firewx_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>plots_firewx_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_firewx;</value></envar>
@@ -545,6 +587,8 @@
             <join><cyclestr>&LOGOUT;/plots_radar_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>plots_radar_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_all;</value></envar>
@@ -559,6 +603,8 @@
             <join><cyclestr>&LOGOUT;/plots_severe_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>plots_severe_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
             <envar><name>RRFSevs</name><value>&RRFSevs;</value></envar>
             <envar><name>vhr</name><value><cyclestr>@H</cyclestr></value></envar>
             <envar><name>models</name><value>&models_all;</value></envar>
@@ -589,6 +635,10 @@
             <join><cyclestr>&LOGOUT;/transfer_firewx_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>transfer_firewx_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>rzdmuser</name><value>&RZDMUSER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+            <envar><name>LOGOUT</name><value>&LOGOUT;</value></envar>
             <envar><name>verif_case</name><value>firewx</value></envar>
         
         </task>
@@ -601,6 +651,10 @@
             <join><cyclestr>&LOGOUT;/transfer_precip_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>transfer_precip_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>rzdmuser</name><value>&RZDMUSER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+            <envar><name>LOGOUT</name><value>&LOGOUT;</value></envar>
             <envar><name>verif_case</name><value>precip</value></envar>
         
         </task>
@@ -613,6 +667,10 @@
             <join><cyclestr>&LOGOUT;/transfer_snowfall_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>transfer_snowfall_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>rzdmuser</name><value>&RZDMUSER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+            <envar><name>LOGOUT</name><value>&LOGOUT;</value></envar>
             <envar><name>verif_case</name><value>snowfall</value></envar>
         
         </task>
@@ -625,6 +683,10 @@
             <join><cyclestr>&LOGOUT;/transfer_radar_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>transfer_radar_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>rzdmuser</name><value>&RZDMUSER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+            <envar><name>LOGOUT</name><value>&LOGOUT;</value></envar>
             <envar><name>verif_case</name><value>radar</value></envar>
         
         </task>
@@ -637,6 +699,10 @@
             <join><cyclestr>&LOGOUT;/transfer_severe_@Y@m@d@H.log</cyclestr></join>
             <jobname><cyclestr>transfer_severe_@H</cyclestr></jobname>
 
+            <envar><name>USER</name><value>&USER;</value></envar>
+            <envar><name>rzdmuser</name><value>&RZDMUSER;</value></envar>
+            <envar><name>LOGDIR</name><value>&LOGDIR;</value></envar>
+            <envar><name>LOGOUT</name><value>&LOGOUT;</value></envar>
             <envar><name>verif_case</name><value>severe</value></envar>
         
         </task>
